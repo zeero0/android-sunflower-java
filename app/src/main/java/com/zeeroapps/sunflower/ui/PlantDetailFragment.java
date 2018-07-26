@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 
 import com.zeeroapps.sunflower.R;
 import com.zeeroapps.sunflower.data.Plant;
-import com.zeeroapps.sunflower.databinding.FragmentPlantDetailBinding;
+import com.zeeroapps.sunflower.databinding.FragmentPlantDetailsBinding;
 import com.zeeroapps.sunflower.utils.InjectorUtils;
 import com.zeeroapps.sunflower.view_models.PlantDetailViewModel;
 import com.zeeroapps.sunflower.view_models.PlantDetailViewModelFactory;
@@ -30,6 +30,8 @@ public class PlantDetailFragment extends Fragment {
     private static final String TAG = "PlantDetailFragment";
     private static final String ARG_ITEM_ITEM = "item_id";
 
+    String shareText;
+
     public static PlantDetailFragment newInstance(String plantId) {
         Bundle args = new Bundle();
         args.putString(ARG_ITEM_ITEM, plantId);
@@ -41,8 +43,8 @@ public class PlantDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentPlantDetailBinding binding = DataBindingUtil.inflate(inflater,
-                R.layout.fragment_plant_detail, container, false);
+        FragmentPlantDetailsBinding binding = DataBindingUtil.inflate(inflater,
+                R.layout.fragment_plant_details, container, false);
         View view = binding.getRoot();
 
         String plantId = PlantDetailFragmentArgs.fromBundle(getArguments()).getPlantId();
@@ -54,12 +56,15 @@ public class PlantDetailFragment extends Fragment {
             @Override
             public void onChanged(@Nullable Plant plant) {
                 Log.e(TAG, "onChanged: "+plant.getName() );
-                binding.setPlant(plant);
+                shareText = plant == null ? "" :
+                        String.format(getString(R.string.share_text_plant), plant.getName());
+
+//                binding.setPlant(plant);
             }
         });
 
         binding.setLifecycleOwner(this);
-//        binding.setViewModel(viewModel);
+        binding.setViewModel(viewModel);
 
         setHasOptionsMenu(true);
         return null;

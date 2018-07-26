@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="plant"
-            type="com.zeeroapps.sunflower.data.Plant"/>
         <!--<variable-->
-            <!--name="viewModel"-->
-            <!--type="com.zeeroapps.sunflower.view_models.PlantDetailViewModel" />-->
+            <!--name="plant"-->
+            <!--type="com.zeeroapps.sunflower.data.Plant"/>-->
+        <variable
+            name="viewModel"
+            type="com.zeeroapps.sunflower.view_models.PlantDetailViewModel" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="com.google.samples.apps.sunflower.GardenActivity"
+        tools:context="com.zeeroapps.sunflower.ui.GardenActivity"
         tools:ignore="MergeRootFrame">
 
         <android.support.design.widget.AppBarLayout
@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                app:title="@{plant.name}"
+                app:title="@{viewModel.plant.name}"
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:toolbarId="@+id/toolbar">
@@ -42,7 +42,7 @@
                     android:contentDescription="@string/plant_detail_image_content_description"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
-                    app:imageFromUrl="@{plant.imageUrl}"
+                    app:imageFromUrl="@{viewModel.plant.imageUrl}"
                     app:layout_collapseMode="parallax" />
 
                 <android.support.v7.widget.Toolbar
@@ -86,7 +86,7 @@
                     android:layout_marginEnd="@dimen/margin_small"
                     android:layout_marginStart="@dimen/margin_small"
                     android:layout_marginTop="@dimen/margin_small"
-                    android:text="@{plant.description}"
+                    android:text="@{viewModel.plant.description}"
                     android:textIsSelectable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

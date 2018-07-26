@@ -27,8 +27,8 @@ public class PlantDetailViewModel extends ViewModel {
         gardenPlantingRepository.createGardenPlanting(plantId);
     }
 
-    public Plant getPlant(){
-        return plant.getValue();
+    public LiveData<Plant> getPlant(){
+        return plant;
     }
 
 }
