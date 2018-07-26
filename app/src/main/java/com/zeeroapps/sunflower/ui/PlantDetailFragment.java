@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ public class PlantDetailFragment extends Fragment {
     private static final String ARG_ITEM_ITEM = "item_id";
 
     String shareText;
+    PlantDetailViewModel mViewModel;
 
     public static PlantDetailFragment newInstance(String plantId) {
         Bundle args = new Bundle();
@@ -45,29 +47,38 @@ public class PlantDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         FragmentPlantDetailsBinding binding = DataBindingUtil.inflate(inflater,
                 R.layout.fragment_plant_details, container, false);
-        View view = binding.getRoot();
 
         String plantId = PlantDetailFragmentArgs.fromBundle(getArguments()).getPlantId();
+        setupViewModel(plantId);
 
-        PlantDetailViewModelFactory factory = InjectorUtils.providePlantDetailViewModelFactory(
-                getActivity(), plantId);
-        PlantDetailViewModel viewModel = ViewModelProviders.of(this, factory).get(PlantDetailViewModel.class);
-        viewModel.plant.observe(this, new Observer<Plant>() {
+        binding.setViewModel(mViewModel);
+        binding.setLifecycleOwner(this);
+        binding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewModel.addPlantToGarden();
+                Snackbar.make(view, R.string.added_plant_to_garden, Snackbar.LENGTH_LONG).show();
+
+                //Todo: Hide button after adding plant to garden.
+            }
+        });
+
+        setHasOptionsMenu(true);
+        return binding.getRoot();
+    }
+
+    private void setupViewModel(String plantId) {
+        PlantDetailViewModelFactory factory = InjectorUtils
+                .providePlantDetailViewModelFactory(getActivity(), plantId);
+        mViewModel = ViewModelProviders.of(this, factory).get(PlantDetailViewModel.class);
+        mViewModel.plant.observe(this, new Observer<Plant>() {
             @Override
             public void onChanged(@Nullable Plant plant) {
                 Log.e(TAG, "onChanged: "+plant.getName() );
                 shareText = plant == null ? "" :
                         String.format(getString(R.string.share_text_plant), plant.getName());
-
-//                binding.setPlant(plant);
             }
         });
-
-        binding.setLifecycleOwner(this);
-        binding.setViewModel(viewModel);
-
-        setHasOptionsMenu(true);
-        return null;
     }
 
     @Override

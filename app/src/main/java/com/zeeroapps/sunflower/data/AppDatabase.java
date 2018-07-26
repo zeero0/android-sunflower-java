@@ -22,7 +22,10 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase getInstance(Context context) {
         if (instance == null) {
-            instance = buildDatabase(context);
+            synchronized (AppDatabase.class) {
+                if (instance == null)
+                    instance = buildDatabase(context);
+            }
         }
         return instance;
     }

@@ -12,4 +12,12 @@ public class PlantAndGardenPlantings {
 
     @Relation(parentColumn = "id", entityColumn = "plant_id")
     List<GardenPlanting> gardenPlantings = new ArrayList<>();
+
+    public Plant getPlant() {
+        return plant;
+    }
+
+    public List<GardenPlanting> getGardenPlantings(){
+        return gardenPlantings;
+    }
 }

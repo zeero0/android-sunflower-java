@@ -1,6 +1,7 @@
 package com.zeeroapps.sunflower.data;
 
 import android.arch.lifecycle.LiveData;
+import android.os.AsyncTask;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -27,8 +28,14 @@ public class GardenPlantingRepository {
     }
 
     public void createGardenPlanting(String plantId) {
-        GardenPlanting gardenPlanting = new GardenPlanting(plantId);
-        gardenPlantingDao.insertGardenPlanting(gardenPlanting);
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                GardenPlanting gardenPlanting = new GardenPlanting(plantId);
+                gardenPlantingDao.insertGardenPlanting(gardenPlanting);
+            }
+        });
+
     }
 
 

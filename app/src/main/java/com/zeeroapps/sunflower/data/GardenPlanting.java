@@ -17,16 +17,16 @@ public class GardenPlanting {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    long gardenPlantingId = 0;
+    public long gardenPlantingId = 0;
 
     @ColumnInfo(name = "plant_id")
-    String plantId;
+    public String plantId;
 
     @ColumnInfo(name = "plant_date")
-    Calendar plantDate = Calendar.getInstance();
+    public Calendar plantDate = Calendar.getInstance();
 
     @ColumnInfo(name = "last_watering_date")
-    Calendar lastWateringDate = Calendar.getInstance();
+    public Calendar lastWateringDate = Calendar.getInstance();
 
     public GardenPlanting(String plantId) {
         this.plantId = plantId;

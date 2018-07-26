@@ -69,9 +69,9 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.ViewHolder>{
     class ViewHolder extends RecyclerView.ViewHolder {
         ListItemPlantBinding binding;
 
-        ViewHolder(@NonNull ListItemPlantBinding itemView) {
-            super(itemView.getRoot());
-            binding = itemView;
+        ViewHolder(@NonNull ListItemPlantBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
 
         void bind(Plant plant, View.OnClickListener clickListener) {

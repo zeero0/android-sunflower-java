@@ -5,6 +5,7 @@ import android.content.Context;
 import com.zeeroapps.sunflower.data.AppDatabase;
 import com.zeeroapps.sunflower.data.GardenPlantingRepository;
 import com.zeeroapps.sunflower.data.PlantRepository;
+import com.zeeroapps.sunflower.view_models.GardenPlantingListViewModelFactory;
 import com.zeeroapps.sunflower.view_models.PlantDetailViewModelFactory;
 import com.zeeroapps.sunflower.view_models.PlantListViewModel;
 import com.zeeroapps.sunflower.view_models.PlantListViewModelFactory;
@@ -24,6 +25,11 @@ public class InjectorUtils {
         PlantRepository repository = getPlantRepository(context);
         PlantListViewModelFactory vmFactory = new PlantListViewModelFactory(repository);
         return vmFactory;
+    }
+
+    public static GardenPlantingListViewModelFactory provideGardenPlantListViewModelFactory(Context context) {
+        GardenPlantingRepository gardenPlantingRepository = getGardenPlantingRepository(context);
+        return new GardenPlantingListViewModelFactory(gardenPlantingRepository);
     }
 
     public static PlantDetailViewModelFactory providePlantDetailViewModelFactory(Context context, String plantId) {
