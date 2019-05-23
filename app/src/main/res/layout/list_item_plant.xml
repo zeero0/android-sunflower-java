@@ -13,7 +13,7 @@
             type="com.zeeroapps.sunflower.data.Plant"/>
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{clickListener}">
@@ -48,5 +48,5 @@
             app:layout_constraintTop_toBottomOf="@id/plant_item_image"
             tools:text="Tomato"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

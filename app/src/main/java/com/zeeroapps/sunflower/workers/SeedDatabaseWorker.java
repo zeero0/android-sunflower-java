@@ -1,14 +1,12 @@
 package com.zeeroapps.sunflower.workers;
 
-import android.support.annotation.NonNull;
-import android.util.JsonReader;
+import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.zeeroapps.sunflower.data.AppDatabase;
 import com.zeeroapps.sunflower.data.Plant;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 

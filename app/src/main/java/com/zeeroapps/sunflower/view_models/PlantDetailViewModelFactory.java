@@ -1,9 +1,9 @@
 package com.zeeroapps.sunflower.view_models;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.annotation.NonNull;
 
 import com.zeeroapps.sunflower.data.GardenPlantingRepository;
 import com.zeeroapps.sunflower.data.PlantRepository;

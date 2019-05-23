@@ -1,8 +1,8 @@
 package com.zeeroapps.sunflower.view_models;
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 import android.content.Context;
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 import com.zeeroapps.sunflower.R;
 import com.zeeroapps.sunflower.data.GardenPlanting;

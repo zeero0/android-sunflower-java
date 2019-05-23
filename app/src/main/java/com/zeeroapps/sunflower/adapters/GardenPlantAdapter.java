@@ -1,15 +1,13 @@
 package com.zeeroapps.sunflower.adapters;
 
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.DataBindingUtil;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.zeeroapps.sunflower.R;
-import com.zeeroapps.sunflower.data.GardenPlanting;
 import com.zeeroapps.sunflower.data.PlantAndGardenPlantings;
 import com.zeeroapps.sunflower.databinding.ListItemGardenPlantingBinding;
 import com.zeeroapps.sunflower.view_models.PlantAndGardenPlantingsViewModel;

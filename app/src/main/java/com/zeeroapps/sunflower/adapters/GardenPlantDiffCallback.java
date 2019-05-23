@@ -1,8 +1,7 @@
 package com.zeeroapps.sunflower.adapters;
 
-import android.support.v7.util.DiffUtil;
+import androidx.recyclerview.widget.DiffUtil;
 
-import com.zeeroapps.sunflower.data.Plant;
 import com.zeeroapps.sunflower.data.PlantAndGardenPlantings;
 
 import java.util.List;

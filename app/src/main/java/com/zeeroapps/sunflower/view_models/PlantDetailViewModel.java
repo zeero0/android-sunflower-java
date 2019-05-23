@@ -1,7 +1,7 @@
 package com.zeeroapps.sunflower.view_models;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.zeeroapps.sunflower.data.GardenPlanting;
 import com.zeeroapps.sunflower.data.GardenPlantingRepository;
@@ -31,4 +31,9 @@ public class PlantDetailViewModel extends ViewModel {
         return plant;
     }
 
+//    @Override
+//    protected void onCleared() {
+//        super.onCleared();
+//        viewModelScope.cancel();
+//    }
 }
